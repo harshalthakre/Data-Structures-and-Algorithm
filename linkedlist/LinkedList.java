@@ -16,6 +16,9 @@ public class LinkedList{
         }
     }
 
+    public Node getHead(){
+        return head;
+    }
     // Add new node to the start of the list 
     public void addFirst(int data){
         Node newNode=new Node(data);
@@ -77,6 +80,37 @@ public class LinkedList{
             itr++;
         }
         return 1;
+    }
+
+    // Reverse the linked list by swapping the link
+    // Time complexity O(n)
+    // Space complexity O(1)
+    public void reverse(){
+        Node curr=head;
+        if(curr==null){
+            System.out.println("ERROR!! Linked List is empty..");
+            return;
+        }
+        Node prev=null;
+        Node second=curr.next;
+        while(curr.next!=null){
+          
+        }
+        head=curr; // make the last node as head;
+    }
+
+    // Reverse the linked list using stack
+    // Time complexity O(n)
+    // Space complexity O(n)
+    public void reverseWithStack(){
+        LinkedList stack=new LinkedList();
+        Node temp=head;
+        if(temp==null){ System.out.println("ERROR!! Linked List is empty..");}
+        while(temp!=null){
+            stack.addFirst(temp.data);
+            temp=temp.next;
+        }
+        head=stack.getHead();
     }
 
 }   
