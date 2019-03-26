@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Stack{
     private Node top;
+    private boolean fastMinRetrieval;
 
     class Node{
         int data;
@@ -56,8 +57,37 @@ public class Stack{
         return;
     }
     
+    // Check if stack is empty 
+    // returns True if Stack Empty else false
+    public boolean isStackEmpty(){
+        if(top==null) return true;
+        else return false;
+    }
+    public int getMin(){
+        if(isStackEmpty()){ System.out.println("STACK IS EMPTY.."); return -1;}
+        return getMinimum(this,Integer.MAX_VALUE);
+    }
+    // Get minimum of stack 
+    // Time complexity O(n)
+    // Space complexity O(1)
+    private int getMinimum(Stack stack,int minimum){
+        if(isStackEmpty()){
+            return minimum;
+        }
+            int data=stack.pop();
+            if(data<minimum) {
+                minimum= getMinimum(stack,data);
+            }else{
+                minimum= getMinimum(stack,minimum);
+            }
+            stack.push(data);
+            return minimum;
+        }
     
-    public void getMinimum(){
-        
+    // Get minmimum in stack
+    // Time complexity O(1)
+    // Space complexity O(n)
+    public int optimizedTimeMin(){
+         
     }
 }

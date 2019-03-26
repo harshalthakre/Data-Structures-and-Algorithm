@@ -2,7 +2,7 @@ import java.util.*;
 public class StackApplication{
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
-        System.out.println("Oerations list..\n1.Push to Stack\n2.Pop\n3.Display\n4.Get Stack top\nE.Exit");
+        System.out.println("Oerations list..\n1.Push to Stack\n2.Pop\n3.Display\n4.Get Stack top\n5.Get Minimum\nE.Exit");
         Stack stack=new Stack();
         while(true){
             System.out.println("select operation..");
@@ -18,6 +18,8 @@ public class StackApplication{
                         stack.display();
                         break;
                 case 4: System.out.println("Stack top: "+stack.top());
+                        break;
+                case 5: System.out.println("Min in Stack: "+stack.getMin());
                         break;
                 case 'E': sc.close(); return;
             }
