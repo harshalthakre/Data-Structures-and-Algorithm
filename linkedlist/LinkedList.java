@@ -92,11 +92,14 @@ public class LinkedList{
             return;
         }
         Node prev=null;
-        Node second=curr.next;
-        while(curr.next!=null){
-          
+        Node next=null;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
         }
-        head=curr; // make the last node as head;
+        head=prev; // make the last node as head;
     }
 
     // Reverse the linked list using stack
@@ -113,4 +116,30 @@ public class LinkedList{
         head=stack.getHead();
     }
 
+    public int pop(){
+        Node temp=head;
+        if(temp==null){
+            return -1;
+        }
+        head=temp.next;
+        return temp.data;
+    }
+
+    public int deleteLast(){
+        Node temp=head;
+        if(temp==null){
+            return -1;
+        }   
+        if(temp.next==null){
+            head=null;
+            return temp.data;
+        }
+        Node prev=null;
+        while(temp.next!=null){
+            prev=temp;
+            temp=temp.next;
+        }
+        prev.next=null;
+        return temp.data;
+    }
 }   

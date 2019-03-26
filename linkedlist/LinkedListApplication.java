@@ -4,7 +4,7 @@ public class LinkedListApplication{
         LinkedList list=new LinkedList();
         Scanner sc=new Scanner(System.in);
         
-        System.out.println ("Perform following operations on Linked List...\n1.AddFirst\n2.AddLast\n3.AddInBetween\n4.Display\n5.Reverse\n6.ReverseWithStack\nE.Exit");
+        System.out.println ("Perform following operations on Linked List...\n1.AddFirst\n2.AddLast\n3.AddInBetween\n4.Display\n5.Reverse\n6.ReverseWithStack\n7.Delete Last\n8.Delete First\nE.Exit");
         
         while(true){
             System.out.println("select operation..");
@@ -32,6 +32,14 @@ public class LinkedListApplication{
                         break;
                 case 6: System.out.println("Reversing the list with stack...");
                         list.reverseWithStack();
+                        list.display();
+                        break;
+                case 7: System.out.println("Deleting last element..");
+                        list.deleteLast();
+                        list.display();
+                        break;
+                case 8: System.out.println("Deleting first element..");
+                        list.pop();
                         list.display();
                         break;                
                 case 'E': System.out.println("Closing the Linked List Application...");
